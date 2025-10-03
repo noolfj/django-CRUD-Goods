@@ -29,11 +29,11 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add= True)
     updated_at= models.DateTimeField(auto_now=True)
     
-def price_after_discount(self):
-    if self.discount_percent:
-        return (self.price * Decimal(100 - self.discount_percent) / Decimal(100)).quantize(Decimal('0.01'))
-    return self.price
+    def price_after_discount(self):
+        if self.discount_percent:
+            return (self.price * Decimal(100 - self.discount_percent) / Decimal(100)).quantize(Decimal('0.01'))
+        return self.price
 
     
     def __str__(self):
-        return self.name
+        return self.name    

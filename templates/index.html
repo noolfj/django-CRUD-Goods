@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Магазин — товары</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Все товары</h1>
+      <div class="controls">
+        <input id="search" type="search" placeholder="Поиск по названию..." />
+        <select id="typeFilter">
+          <option value="">Тип: любой</option>
+          <option value="running">Running</option>
+          <option value="sport">Sport</option>
+          <option value="casual">Casual</option>
+        </select>
+        <select id="sizeFilter">
+          <option value="">Размер: любой</option>
+          <option value="XS">XS</option><option value="S">S</option>
+          <option value="M">M</option><option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+        <button id="clearFilters">Сбросить</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="status" class="status">Загрузка...</div>
+    <div id="grid" class="grid" hidden></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© {{ now|default:"" }} 2025</small>
+    </div>
+  </footer>
+
+  <script>
+    window.API_BASE = '/api/products/';
+  </script>
+  <script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>
