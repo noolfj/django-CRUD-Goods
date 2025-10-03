@@ -1,0 +1,9 @@
+GET /api/products/ — список всех товаров
+
+POST /api/products/ — создать товар
+
+GET /api/products/{id}/ — получить по id
+
+PUT/PATCH /api/products/{id}/ — обновить
+
+DELETE /api/products/{id}/ — удалить
