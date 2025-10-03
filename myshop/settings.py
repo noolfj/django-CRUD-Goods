@@ -3,6 +3,13 @@ from pathlib import Path
 import environ
 import dj_database_url
 
+if os.environ.get('CREATE_SUPERUSER', 'False') == 'True':
+    try:
+        from . import create_superuser
+        create_superuser.run()
+    except Exception as e:
+        print("Superuser creation failed:", e)
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-pztt7gtu3zbcaode9_%et$%q01(x#zn5sk7se%%lozkj4+9=&#'
